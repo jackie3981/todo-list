@@ -1,0 +1,70 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+build
+**/dist
+**/build
+
+# Configuration files
+vite.config.* 
+eslint.config.* 
+prettier.config.* 
+postcss.config.* 
+tailwind.config.*
+
+# Frontend specific
+apps/frontend/.vite
+
+# Backend specific
+apps/backend/**/*.pyc
+apps/backend/__pycache__
+apps/backend/.venv
+apps/backend/.pytest_cache
+
+# Database
+database/migrations/versions/*.py
+
+# Compiled CSS
+dist/**/*.css
+build/**/*.css
+
+# Static assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+*.ttf
+*.woff
+*.woff2
+
+# Version control
+.git
+.gitignore
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Docs and reports
+coverage/
+report/
+docs/
+
+# Package managers
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode
+.idea
