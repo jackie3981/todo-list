@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
+import react from 'eslint-plugin-react'
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import prettier from "eslint-config-prettier";
@@ -22,9 +23,19 @@ export default defineConfig([
       prettier, // Disable rules that conflict with Prettier
     ],
 
+    // Additional settings
+    settings: {
+      react: {
+        version: "detect", // Automatically detect the react version
+      },
+    },
+
     // Additional plugins
     plugins: {
       prettier: pluginPrettier,
+      react: react, // React specific linting rules
+      reactHooks: reactHooks,
+      reactRefresh: reactRefresh,
     },
 
     // environment and parser options
@@ -48,7 +59,11 @@ export default defineConfig([
         "error",
         { varsIgnorePattern: "^[A-Z_]", argsIgnorePattern: "^_" },
       ],
-      "no-console": ["warn", { allow: ["warn", "error"] }], // Permite solo console.warn/error
+      "no-console": ["warn", { allow: ["warn", "error"] }], // Allow console.warn and console.error
+
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
 
       // code style
       semi: ["error", "always"],
