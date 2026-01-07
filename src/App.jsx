@@ -1,10 +1,19 @@
 import { useState } from "react";
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
+import TodoList from "./features/TodoList/TodoList";
+import TodoForm from "./features/TodoForm";
 import "./App.css";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+
+  const updateTodo = (editedTodo) => {
+    const updatedTodos = todoList.map((todo) => 
+      todo.id === editedTodo.id 
+        ? {...editedTodo} 
+        : todo
+    );
+    setTodoList(updatedTodos);
+  }
 
   function addTodo(todoTitle) {
     const newTodo = {
@@ -30,11 +39,12 @@ function App() {
 
   return (
     <div>
-      <h1>My Todos</h1>
+      <h1>Todo List</h1>
       <TodoForm onAddTodo={addTodo} />
       <TodoList 
         todoList={todoList} 
         onCompleteTodo={completeTodo}
+        onUpdateTodo={updateTodo}
       />
     </div>
   );
