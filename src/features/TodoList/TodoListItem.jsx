@@ -1,17 +1,54 @@
-import { useState } from "react";
 import TextInputWithLabel from "../../shared/TextInputWithLabel";
+import { isValidTodoTitle } from "../../utils/todoValidation";
+import { useEditableTitle } from "../../hooks/useEditableTitle";
 
-function TodoListItem({ todo, onCompleteTodo }) {
-  const [isEditing, setIsEditing] = useState(false);
+function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
+  const {
+    isEditing,
+    workingTitle,
+    startEditing,
+    cancelEdit,
+    updateTitle,
+    finishEdit
+  } = useEditableTitle(todo.title);
+
+  const handleUpdate = (event) => {
+    event.preventDefault();
+
+    if (!isEditing) return;
+
+    const finalTitle = finishEdit();
+
+    onUpdateTodo({
+      ...todo,
+      title: finalTitle,
+    });
+  };
+
   return (
     <li>
-      <form>
+      <form onSubmit={handleUpdate}>
         {isEditing ? (
-          <TextInputWithLabel
-            elementId={`todo-${todo.id}`}
-            labelText=""
-            value={todo.title}
-          />
+          <>
+            <TextInputWithLabel
+              elementId={`todo-${todo.id}`}
+              labelText=""
+              value={workingTitle}
+              onChange={(event) => updateTitle(event.target.value)}
+            />
+
+            <button type="button" onClick={cancelEdit}>
+              Cancel
+            </button>
+
+            <button
+              type="button"
+              onClick={handleUpdate}
+              disabled={!isValidTodoTitle(workingTitle)}
+            >
+              Update
+            </button>
+          </>
         ) : (
           <>
             <label>
@@ -23,7 +60,7 @@ function TodoListItem({ todo, onCompleteTodo }) {
               />
             </label>
 
-            <span onClick={() => setIsEditing(true)}>
+            <span onClick={startEditing}>
               {todo.title}
             </span>
           </>
@@ -34,4 +71,3 @@ function TodoListItem({ todo, onCompleteTodo }) {
 }
 
 export default TodoListItem;
-
