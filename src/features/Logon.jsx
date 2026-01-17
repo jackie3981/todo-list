@@ -7,13 +7,13 @@ export default function Logon({ onSetEmail, onSetToken }) {
   const [authError, setAuthError] = useState("");
   const [isLoggingOn, setIsLoggingOn] = useState(false);
 
-  // Base URL desde .env
+  // Base URL from .env
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoggingOn(true);
-    setAuthError(""); // limpiar errores previos
+    setAuthError(""); 
 
     try {
       const response = await fetch(`${baseUrl}/user/logon`, {
