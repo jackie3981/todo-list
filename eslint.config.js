@@ -1,6 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import prettier from "eslint-config-prettier";
@@ -32,7 +32,7 @@ export default defineConfig([
 
     // Additional plugins
     plugins: {
-      prettier: pluginPrettier,
+      //prettier: pluginPrettier,
       react: react, // React specific linting rules
       reactHooks: reactHooks,
       reactRefresh: reactRefresh,
@@ -63,7 +63,7 @@ export default defineConfig([
 
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
+      ...react.configs["jsx-runtime"].rules,
 
       // code style
       semi: ["error", "always"],
