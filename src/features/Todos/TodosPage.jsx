@@ -5,12 +5,14 @@ import TodoList from "./TodoList/TodoList";
 import SortBy from "../../shared/SortBy";
 import FilterInput from "../../shared/FilterInput";
 import useDebounce from "../../utils/useDebounce";
+import { useAuth } from "../../contexts/AuthContext";
 
 import { todoReducer, initialTodoState, TODO_ACTIONS } from "../../reducers/todoReducers";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
-export default function TodosPage({ token }) {
+export default function TodosPage() {
+  const { token } = useAuth();
   const [state, dispatch] = useReducer(todoReducer, initialTodoState);
   const {
     todoList,
