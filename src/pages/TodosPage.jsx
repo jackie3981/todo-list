@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useCallback, useReducer } from "react";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList/TodoList";
-import SortBy from "../../shared/SortBy";
-import FilterInput from "../../shared/FilterInput";
-import useDebounce from "../../utils/useDebounce";
-import { useAuth } from "../../contexts/AuthContext";
+import TodoForm from "../features/Todos/TodoForm";
+import TodoList from "../features/Todos/TodoList/TodoList";
+import SortBy from "../shared/SortBy";
+import FilterInput from "../shared/FilterInput";
+import useDebounce from "../utils/useDebounce";
+import { useAuth } from "../contexts/AuthContext";
+import { useSearchParams } from "react-router";
+import StatusFilter from "../shared/StatusFilter";
 
-import { todoReducer, initialTodoState, TODO_ACTIONS } from "../../reducers/todoReducers";
+import { todoReducer, initialTodoState, TODO_ACTIONS } from "../reducers/todoReducers";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -26,7 +28,9 @@ export default function TodosPage() {
   } = state;
   
   const debouncedFilterTerm = useDebounce(filterTerm, 500);
-
+  const [searchParams] = useSearchParams();
+  const statusFilter = searchParams.get("status") || "all";
+  
   // Fetch todos at mount and when token changes
   useEffect(() => {
     if (!token) return;
@@ -199,7 +203,6 @@ export default function TodosPage() {
         </div>
       )}
 
-
       {isTodoListLoading && <p>Loading todos...</p>}
 
       <SortBy
@@ -208,6 +211,8 @@ export default function TodosPage() {
         onSortByChange={(sortBy) => dispatch({ type: TODO_ACTIONS.SET_SORT, payload: { sortBy, sortDirection } })}
         onSortDirectionChange={(sortDirection) => dispatch({ type: TODO_ACTIONS.SET_SORT, payload: { sortBy, sortDirection } })}
       />
+
+      <StatusFilter />
 
       <FilterInput
         filterTerm={filterTerm}
@@ -220,6 +225,7 @@ export default function TodosPage() {
         onCompleteTodo={completeTodo}
         onUpdateTodo={updateTodo}
         dataVersion={dataVersion}
+        statusFilter={statusFilter}
       />
 
     </div>
