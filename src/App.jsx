@@ -1,24 +1,45 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router";
+
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import TodosPage from "./pages/TodosPage"; 
+import AboutPage from "./pages/AboutPage";
+import ProfilePage from "./pages/ProfilePage";
+import NotFoundPage from "./pages/NotFoundPage";
+
+import RequireAuth from "./routes/RequireAuth";
 import Header from "./shared/Header";
-import TodosPage from "./features/Todos/TodosPage";
-import Logon from "./features/Logon";
-import { useAuth } from "./contexts/AuthContext";
+
 import "./App.css";
 
-function App() {
-  const { isAuthenticated } = useAuth();
-  // const [email, setEmail] = useState("");
-  // const [token, setToken] = useState("");
-
+export default function App() {
   return (
-    <div>
-      {/* Header always visible */}
+    <>
       <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route
+          path="/todos"
+          element={
+            <RequireAuth>             
+              <TodosPage />
+            </RequireAuth>
+          }
+        />
 
-      {/* Conditional rendering */}
-      {isAuthenticated ? <TodosPage /> : <Logon />}
-    </div>
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <ProfilePage />
+            </RequireAuth>
+          }
+        />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
