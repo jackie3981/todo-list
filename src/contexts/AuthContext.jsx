@@ -11,7 +11,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [token, setToken] = useState('');
 
   const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
       
       if (res.status === 200 && data.name && data.csrfToken) {
         // Success: Update state
-        setEmail(data.name);
+        setName(data.name);
         setToken(data.csrfToken);
         return { success: true };
       } else {
@@ -63,13 +63,13 @@ export function AuthProvider({ children }) {
       }
       
       // Always clear local state whether API succeeds or fails
-      setEmail('');
+      setName('');
       setToken('');
       
       return { success: true };
     } catch (error) {
       // Even if API fails, clear local state
-      setEmail('');
+      setName('');
       setToken('');
       return {
         success: false,
@@ -79,7 +79,7 @@ export function AuthProvider({ children }) {
   }, [baseUrl, token]);
 
   const value = {
-    email,
+    name,
     token,
     isAuthenticated: !!token,
     login,
