@@ -1,0 +1,45 @@
+/* ========================================
+   GLOBAL STYLES
+   Import all Tailwind and custom global styles
+   ======================================== */
+
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
+/* Import tailwind with our custom tokens */
+@import "./token.css";
+
+/* Import reusable components */
+@import "./components.css";
+
+/* ========================================
+   CUSTOM GLOBAL UTILITIES
+   Additional global styles and utilities
+   ======================================== */
+
+@layer base {
+  /* assure the root element takes full height */
+  html, body, #root {
+    @apply h-full;
+  }
+
+  /* smooth the scroll behavior */
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* improve font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ==================================================
+   APP-SPECIFIC OVERRIDES
+   specific overrides for your application if needed
+   ================================================== */
+
+@layer components {
+  /* Puedes agregar clases específicas de tu app aquí si lo necesitas */
+}

@@ -1,0 +1,70 @@
+@reference "../../styles/global.css";
+
+.container {
+  @apply max-w-4xl mx-auto;
+}
+
+.header {
+  @apply text-center mb-10;
+}
+
+.headerIcon {
+  @apply mx-auto mb-4 text-blue-600;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-tertiary);
+}
+
+.grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 1.5rem;
+}
+
+.cardHeader {
+  @apply flex items-center gap-3 mb-4;
+}
+
+.cardIcon {
+  @apply text-blue-600;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.list {
+  @apply space-y-2 list-none pl-0;
+}
+
+.list li {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: 700;
+}

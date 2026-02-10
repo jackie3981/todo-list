@@ -1,0 +1,34 @@
+@reference "../../styles/global.css";
+
+.toggle {
+  @apply relative
+         w-14 h-7
+         bg-slate-200 dark:bg-slate-700
+         rounded-full
+         border-2 border-slate-300 dark:border-slate-600
+         cursor-pointer
+         transition-colors duration-300
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.slider {
+  @apply absolute top-0.5 left-0.5
+         w-5 h-5
+         bg-white
+         rounded-full
+         shadow-md
+         flex items-center justify-center
+         transition-transform duration-300;
+}
+
+.sliderDark {
+  @apply transform translate-x-7;
+}
+
+.icon {
+  @apply text-slate-700;
+}
+
+.sliderDark .icon {
+  @apply text-yellow-400;
+}

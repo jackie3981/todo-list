@@ -1,0 +1,77 @@
+@reference "../../styles/global.css";
+
+.container {
+  @apply w-full max-w-md;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: transparent;
+}
+
+.input:disabled {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+}
+
+.inputError {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid #ef4444;
+  border-radius: 0.5rem;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputError::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.inputError:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ef4444;
+  border-color: transparent;
+}
+
+.inputError:disabled {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+}
+
+.error {
+  @apply block mt-1 text-xs text-red-600;
+}
+
+.charCount {
+  @apply block mt-1 text-xs text-orange-600;
+}

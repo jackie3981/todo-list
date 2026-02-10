@@ -1,0 +1,60 @@
+@reference "../../styles/global.css";
+
+.container {
+  @apply flex items-center gap-3;
+}
+
+.welcome {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .welcome {
+    display: inline;
+  }
+}
+
+.logoutBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoutBtn:hover {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border-light);
+}
+
+.logoutBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px #94a3b8;
+}
+
+.logoutBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  @apply text-xs text-orange-600 font-medium;
+}
+
+/* Responsive - en mobile solo mostrar icono */
+@media (max-width: 640px) {
+  .logoutBtn {
+    padding: 0.5rem 0.625rem;
+  }
+}

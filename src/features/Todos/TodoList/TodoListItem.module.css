@@ -1,0 +1,180 @@
+@reference "../../../styles/global.css";
+
+/* Filas alternadas */
+.itemEven {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: colors 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.itemOdd {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border);
+  transition: colors 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.itemEven:last-child,
+.itemOdd:last-child {
+  border-bottom: 0;
+}
+
+/* Modo vista (checkbox + título + botones) */
+.viewMode {
+  @apply flex items-center gap-3;
+}
+
+.checkboxLabel {
+  @apply flex items-center cursor-pointer;
+}
+
+.checkbox {
+  @apply w-5 h-5 min-w-[20px] min-h-[20px]
+         text-blue-600
+         bg-white
+         border-slate-300 rounded
+         transition-all duration-200
+         focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
+         cursor-pointer;
+}
+
+.title {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  cursor: default;
+}
+
+.titleCompleted {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.btnEdit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 0.5rem;
+  color: var(--color-text-tertiary);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnEdit:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+}
+
+.btnEdit:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #94a3b8, 0 0 0 1px var(--color-bg-primary);
+}
+
+.btnDelete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 0.5rem;
+  color: #ef4444;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnDelete:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+:root.dark .btnDelete:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.btnDelete:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ef4444, 0 0 0 1px var(--color-bg-primary);
+}
+
+/* Modo edición */
+.editForm {
+  @apply space-y-3;
+}
+
+.editActions {
+  @apply flex gap-2;
+}
+
+.btnCancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnCancel:hover {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border-light);
+}
+
+.btnCancel:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #94a3b8, 0 0 0 1px var(--color-bg-primary);
+}
+
+.btnCancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnUpdate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  background-color: #2563eb;
+  color: white;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnUpdate:hover {
+  background-color: #1d4ed8;
+}
+
+.btnUpdate:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px var(--color-bg-primary);
+}
+
+.btnUpdate:active {
+  background-color: #1e40af;
+}
+
+.btnUpdate:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,106 @@
+
+/home/jackie/projects/todoList/src
+├── App.jsx
+├── assets/
+|  ├── Week-02.png
+|  ├── Week-03.png
+|  ├── Week-05.png
+|  ├── Week-06a.png
+|  ├── Week-06b.png
+|  ├── Week-06c.png
+|  ├── Week-08a.png
+|  ├── Week-08b.png
+|  ├── Week-08c.png
+|  ├── Week-08d.png
+|  ├── Week-09a.png
+|  ├── Week-09b.png
+|  ├── Week-09c.png
+|  ├── Week-09d.png
+|  ├── Week-10a.png
+|  ├── Week-10b.png
+|  ├── Week-11a.png
+|  ├── Week-12a.png
+|  ├── Week-12b.png
+|  ├── Week-12c.png
+|  ├── Week-12d.png
+|  ├── Week-12e.png
+|  └── react.svg
+├── contexts/
+|  ├── AuthContext.jsx
+|  └── ThemeContext.jsx
+├── features/
+|  ├── Logoff/
+|  |  ├── Logoff.jsx
+|  |  └── Logoff.module.css
+|  ├── ThemeToggle/
+|  |  ├── ThemeToggle.jsx
+|  |  └── ThemeToggle.module.css
+|  └── Todos/
+|     ├── TodoForm/
+|     |  ├── TodoForm.jsx
+|     |  └── TodoForm.module.css
+|     └── TodoList/
+|        ├── TodoList.jsx
+|        ├── TodoList.module.css
+|        ├── TodoListItem.jsx
+|        └── TodoListItem.module.css
+├── hooks/
+|  └── useEditableTitle.js
+├── main.jsx
+├── pages/
+|  ├── AboutPage/
+|  |  ├── AboutPage.jsx
+|  |  └── AboutPage.module.css
+|  ├── HomePage/
+|  |  ├── HomePage.jsx
+|  |  └── HomePage.module.css
+|  ├── LoginPage/
+|  |  ├── LoginPage.jsx
+|  |  └── LoginPage.module.css
+|  ├── NotFoundPage/
+|  |  ├── NotFoundPage.jsx
+|  |  └── NotFoundPage.module.css
+|  ├── ProfilePage/
+|  |  ├── ProfilePage.jsx
+|  |  └── ProfilePage.module.css
+|  └── TodosPage/
+|     ├── TodosPage.jsx
+|     └── TodosPage.module.css
+├── reducers/
+|  └── todoReducers.js
+├── routes/
+|  └── RequireAuth.jsx
+├── shared/
+|  ├── FilterInput/
+|  |  ├── FilterInput.jsx
+|  |  └── FilterInput.module.css
+|  ├── Header/
+|  |  ├── Header.jsx
+|  |  └── Header.module.css
+|  ├── Navigation/
+|  |  ├── Navigation.jsx
+|  |  └── Navigation.module.css
+|  ├── SortBy/
+|  |  ├── SortBy.jsx
+|  |  └── SortBy.module.css
+|  ├── StatusFilter/
+|  |  ├── StatusFilter.jsx
+|  |  └── StatusFilter.module.css
+|  └── TextInputWithLabel/
+|     ├── TextInputWithLabel.jsx
+|     └── TextInputWithLabel.module.css
+├── styles/
+|  ├── components.css
+|  ├── global.css
+|  └── token.css
+├── tree.txt
+└── utils/
+   ├── sanitize.js
+   ├── todoValidation.js
+   └── useDebounce.js
+
+directory: 27 file: 71
+
+
+
+[2K[1G

@@ -1,0 +1,199 @@
+/* ========================================
+   DESIGN TOKENS
+   Dark blue professional color palette + Gray neutrals
+   Typography, Spacing, Borders, Shadows, Transitions, Z-Index, Layout
+   ======================================== */
+
+@layer base {
+  :root {
+    /* === COLORS === */
+    
+    /* Primary - professional dark blue */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-200: #bfdbfe;
+    --color-primary-300: #93c5fd;
+    --color-primary-400: #60a5fa;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;  /* Main */
+    --color-primary-700: #1d4ed8;
+    --color-primary-800: #1e40af;
+    --color-primary-900: #1e3a8a;
+
+    /* Neutral grey */
+    --color-neutral-50: #f8fafc;
+    --color-neutral-100: #f1f5f9;
+    --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-400: #94a3b8;
+    --color-neutral-500: #64748b;
+    --color-neutral-600: #475569;
+    --color-neutral-700: #334155;
+    --color-neutral-800: #1e293b;
+    --color-neutral-900: #0f172a;
+
+    /* States */
+    --color-success: #10b981;
+    --color-success-light: #d1fae5;
+    --color-error: #ef4444;
+    --color-error-light: #fee2e2;
+    --color-warning: #f59e0b;
+    --color-warning-light: #fef3c7;
+    --color-info: #3b82f6;
+    --color-info-light: #dbeafe;
+
+    /* === TYPOGRAPHY === */
+    
+    /* Font Families */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Font Sizes */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+
+    /* === SPACING === */
+    /* Basado en escala de 4px */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+
+    /* === BORDERS === */
+    --radius-sm: 0.25rem;    /* 4px */
+    --radius-md: 0.375rem;   /* 6px */
+    --radius-lg: 0.5rem;     /* 8px */
+    --radius-xl: 0.75rem;    /* 12px */
+    --radius-full: 9999px;
+
+    --border-width: 1px;
+    --border-width-2: 2px;
+
+    /* === SHADOWS === */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-focus: 0 0 0 3px var(--color-primary-200);
+
+    /* === TRANSITIONS === */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* === Z-INDEX === */
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-modal: 40;
+    --z-popover: 50;
+    --z-tooltip: 60;
+
+    /* === LAYOUT === */
+    --max-width-sm: 640px;
+    --max-width-md: 768px;
+    --max-width-lg: 1024px;
+    --max-width-xl: 1280px;
+    --max-width-2xl: 1536px;
+
+    /* === SPECIFIC SIZES === */
+    --touch-target-min: 44px;  /* Minimum touch target size for accessibility */
+    --input-height: 2.5rem;    /* 40px */
+    --button-height: 2.5rem;   /* 40px */
+  }
+
+  /* Dark mode variables */
+:root.dark {
+  /* Invertir backgrounds y textos */
+  --color-bg-primary: #0f172a;      /* slate-900 */
+  --color-bg-secondary: #1e293b;    /* slate-800 */
+  --color-bg-tertiary: #334155;     /* slate-700 */
+  
+  --color-text-primary: #f1f5f9;    /* slate-100 */
+  --color-text-secondary: #cbd5e1;  /* slate-300 */
+  --color-text-tertiary: #94a3b8;   /* slate-400 */
+  
+  --color-border: #475569;          /* slate-600 */
+  --color-border-light: #334155;    /* slate-700 */
+}
+
+/* Light mode explicit (opcional, pero ayuda a claridad) */
+:root {
+  --color-bg-primary: #f8fafc;      /* slate-50 */
+  --color-bg-secondary: #ffffff;    /* white */
+  --color-bg-tertiary: #f1f5f9;     /* slate-100 */
+  
+  --color-text-primary: #0f172a;    /* slate-900 */
+  --color-text-secondary: #334155;  /* slate-700 */
+  --color-text-tertiary: #64748b;   /* slate-500 */
+  
+  --color-border: #e2e8f0;          /* slate-200 */
+  --color-border-light: #cbd5e1;    /* slate-300 */
+}
+
+  /* Base styles */
+  * {
+    @apply border-slate-200;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    line-height: var(--leading-normal);
+  }
+
+  /* Typography base */
+  h1 { 
+    @apply text-3xl font-bold 
+          text-slate-900 dark:text-slate-100; 
+  }
+  h2 { 
+    @apply text-2xl font-semibold 
+          text-slate-800 dark:text-slate-200; 
+  }
+  h3 { 
+    @apply text-xl font-semibold 
+          text-slate-800 dark:text-slate-200; 
+  }
+  h4 { 
+    @apply text-lg font-medium 
+          text-slate-700 dark:text-slate-300; 
+  }
+
+  p { 
+    @apply text-base 
+          text-slate-700 dark:text-slate-300; 
+  }
+  
+  a {
+    @apply text-blue-600 transition-colors duration-200;
+  }
+  
+  a:hover {
+    @apply text-blue-700;
+  }
+}
