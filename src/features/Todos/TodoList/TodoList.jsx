@@ -1,7 +1,9 @@
 import TodoListItem from "./TodoListItem";
 import { useMemo } from "react";
+import { Inbox } from "lucide-react";
+import styles from "./TodoList.module.css";
 
-function TodoList({ todoList, onCompleteTodo, onUpdateTodo, dataVersion, statusFilter="all" }) {
+function TodoList({ todoList, onCompleteTodo, onUpdateTodo, onDeleteTodo, dataVersion, statusFilter="all" }) {
   const filteredTodoList = useMemo(() => {
     let filteredTodos;
 
@@ -33,22 +35,27 @@ function TodoList({ todoList, onCompleteTodo, onUpdateTodo, dataVersion, statusF
     }
   }
 
+  if (filteredTodoList.todos.length === 0) {
+    return (
+      <div className={styles.emptyState}>
+        <Inbox className={styles.emptyIcon} size={48} />
+        <p className={styles.emptyText}>{getEmptyMessage()}</p>
+      </div>
+    );
+  }
+
   return (
-    <ul>
-      {filteredTodoList.todos.length === 0 ? (
-        <li>{getEmptyMessage()}</li>
-      ) : (
-        <ul>
-          {filteredTodoList.todos.map((todo) => (
-            <TodoListItem
-              key={todo.id}
-              todo={todo}
-              onCompleteTodo={onCompleteTodo}
-              onUpdateTodo={onUpdateTodo}
-            />
-          ))}
-        </ul>
-      )}
+    <ul className={styles.list}>
+      {filteredTodoList.todos.map((todo, index) => (
+        <TodoListItem
+          key={todo.id}
+          todo={todo}
+          onCompleteTodo={onCompleteTodo}
+          onUpdateTodo={onUpdateTodo}
+          onDeleteTodo={onDeleteTodo}
+          isEven={index % 2 === 0}
+        />
+      ))}
     </ul>
   );
 }

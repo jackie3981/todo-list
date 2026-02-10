@@ -1,0 +1,69 @@
+@reference "../../styles/global.css";
+
+.errorBanner {
+  @apply px-4 py-3 mb-4 rounded-lg
+         text-sm font-medium
+         flex items-center gap-2
+         bg-red-50 text-red-800
+         border border-red-200;
+}
+
+.warningBanner {
+  @apply px-4 py-3 mb-4 rounded-lg
+         text-sm font-medium
+         flex items-start gap-2
+         bg-yellow-50 text-yellow-800
+         border border-yellow-200;
+}
+
+.warningContent {
+  @apply flex-1;
+}
+
+.warningText {
+  @apply mb-2;
+}
+
+.warningActions {
+  @apply flex gap-2;
+}
+
+.closeBtn {
+  @apply inline-flex items-center justify-center
+         w-6 h-6 min-w-[24px] min-h-[24px]
+         rounded
+         text-red-600
+         hover:bg-red-100
+         focus:outline-none focus:ring-2 focus:ring-red-500
+         transition-all duration-200;
+}
+
+.btnWarning {
+  @apply inline-flex items-center gap-1.5
+         px-2.5 py-1.5
+         text-xs font-medium
+         rounded
+         bg-yellow-100 text-yellow-800
+         hover:bg-yellow-200
+         focus:outline-none focus:ring-2 focus:ring-yellow-500
+         transition-all duration-200;
+}
+
+.loadingState {
+  @apply flex items-center gap-3
+         px-4 py-3 mb-4 rounded-lg
+         bg-blue-50 text-blue-800
+         border border-blue-200;
+}
+
+.spinner {
+  @apply inline-block
+         w-5 h-5
+         border-2 border-blue-300 border-t-blue-600
+         rounded-full
+         animate-spin;
+}
+
+.filters {
+  @apply space-y-0;
+}

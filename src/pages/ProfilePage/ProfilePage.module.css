@@ -1,0 +1,151 @@
+@reference "../../styles/global.css";
+
+.container {
+  @apply max-w-4xl mx-auto;
+}
+
+.header {
+  @apply text-center mb-8;
+}
+
+.headerIcon {
+  @apply mx-auto mb-4 text-blue-600;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.infoCard {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.infoRow {
+  @apply flex items-center justify-between;
+}
+
+.infoLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+}
+
+.infoValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.statusActive {
+  @apply text-sm font-semibold text-green-600;
+}
+
+.statusInactive {
+  @apply text-sm font-semibold text-slate-500;
+}
+
+.divider {
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  color: var(--color-text-tertiary);
+}
+
+.spinner {
+  @apply inline-block
+         w-8 h-8 mb-3
+         border-2 border-slate-300 border-t-blue-600
+         rounded-full
+         animate-spin;
+}
+
+.errorBanner {
+  @apply px-4 py-3 rounded-lg
+         text-sm font-medium
+         flex items-center gap-2
+         bg-red-50 text-red-800
+         border border-red-200;
+}
+
+.statsGrid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.statCard {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statIcon {
+  @apply w-12 h-12
+         flex items-center justify-center
+         rounded-lg
+         bg-slate-100 text-slate-600;
+}
+
+.statIconSuccess {
+  @apply w-12 h-12
+         flex items-center justify-center
+         rounded-lg
+         bg-green-100 text-green-600;
+}
+
+.statIconWarning {
+  @apply w-12 h-12
+         flex items-center justify-center
+         rounded-lg
+         bg-yellow-100 text-yellow-600;
+}
+
+.statIconInfo {
+  @apply w-12 h-12
+         flex items-center justify-center
+         rounded-lg
+         bg-blue-100 text-blue-600;
+}
+
+.statContent {
+  @apply flex-1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  margin-bottom: 0.25rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}

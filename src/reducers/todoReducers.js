@@ -15,6 +15,10 @@ export const TODO_ACTIONS = {
     UPDATE_TODO_SUCCESS: 'UPDATE_TODO_SUCCESS',
     UPDATE_TODO_ERROR: 'UPDATE_TODO_ERROR',
 
+    DELETE_TODO_START: 'DELETE_TODO_START',
+    DELETE_TODO_SUCCESS: 'DELETE_TODO_SUCCESS',
+    DELETE_TODO_ERROR: 'DELETE_TODO_ERROR',
+
     SET_SORT: 'SET_SORT',
     SET_FILTER: 'SET_FILTER',
     CLEAR_ERROR: 'CLEAR_ERROR',
@@ -169,6 +173,32 @@ export function todoReducer(state, action) {
                 sortBy: 'creationDate',
                 sortDirection: 'desc',
                 filterError: '',
+            };
+
+        /* ---------- DELETE TODO ---------- */
+
+        case TODO_ACTIONS.DELETE_TODO_START:
+            return {
+                ...state,
+                todoList: state.todoList.filter((t) => t.id !== action.payload.id),
+                error: '',
+            };
+
+        case TODO_ACTIONS.DELETE_TODO_SUCCESS:
+            return {
+                ...state,
+                dataVersion: state.dataVersion + 1,
+            };
+
+        case TODO_ACTIONS.DELETE_TODO_ERROR:
+            return {
+                ...state,
+                todoList: [...state.todoList, action.payload.deletedTodo].sort((a, b) =>
+                    state.sortBy === 'title'
+                        ? a.title.localeCompare(b.title)
+                        : new Date(b.createdTime) - new Date(a.createdTime)
+                ),
+                error: action.payload.message,
             };
 
         default:
